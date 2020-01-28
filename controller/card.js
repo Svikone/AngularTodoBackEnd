@@ -22,7 +22,7 @@ exports.allCard = (req, res) => {
     })
 }
 
-exports.allCard = (req, res) => {
+exports.removeCards = (req, res) => {
     Modules.deleteOne({_id: req.body.id}).then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
