@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const catalogSchema = mongoose.Schema({
+const cardSchema = mongoose.Schema({
     name: String,
     date: String,
     title: String,
     note: String,
 });
 
-module.exports = mongoose.model("cards",catalogSchema);
+module.exports = mongoose.model("cards",cardSchema);
