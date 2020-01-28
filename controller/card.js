@@ -14,7 +14,7 @@ exports.addCard = (req, res) => {
     })
 }
 
-exports.allCard = (req, res) => {
+exports.allCards = (req, res) => {
     Modules.find().then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
