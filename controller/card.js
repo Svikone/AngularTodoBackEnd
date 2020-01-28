@@ -1,6 +1,6 @@
 const Modules = require("../model/card")
 
-exports.addCard() = (req, res) => {
+exports.addCard = (req, res) => {
     const card = {
         note: req.body.note,
         title: req.body.title,
