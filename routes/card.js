@@ -4,6 +4,6 @@ const Router = express.Router()
 
 Router.post("/add",  Controller.addCard);
 Router.post("/all",  Controller.allCards);
-Router.post("/remove",  Controller.removeCards);
+Router.delete("/remove",  Controller.removeCards);
 
 module.exports = Router;
