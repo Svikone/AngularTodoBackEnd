@@ -5,7 +5,7 @@ exports.addCard = (req, res) => {
         note: req.body.note,
         title: req.body.title,
         name: req.body.name,
-        data: req.body.data
+        date: req.body.date
     }
     Modules(card).save().then(result => {
         res.sendStatus(200);
