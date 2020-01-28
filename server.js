@@ -15,7 +15,7 @@ app.use (bodyParser.json ({
 	limit: "50mb"
 }));
 
-// const adminRouter = require("./routes/marca");
+const card = require("./routes/card");
 
 
 let port = process.env.PORT || 9000;
@@ -30,7 +30,7 @@ let port = process.env.PORT || 9000;
 // })
 
 
-// app.use("/api/admin", adminRouter);
+app.use("/api/card", card);
 
 
 
