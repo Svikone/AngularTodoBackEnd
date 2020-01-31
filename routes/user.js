@@ -1,5 +1,5 @@
 const express = require("express");
-const Controller = require("../controller/card");
+const Controller = require("../controller/user");
 const Router = express.Router()
 
 Router.post("/add",  Controller.addUser);
