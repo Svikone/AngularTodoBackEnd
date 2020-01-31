@@ -1,4 +1,5 @@
 const Modules = require("../model/user")
+const jwt = require('jsonwebtoken');
 
 exports.addUser = (req, res) => {
     const user = {
@@ -23,12 +24,12 @@ exports.signinUsers = (req, res) => {
         password: req.body.user.password
     }
     Modules.findOne({email: user.email, password: user.password}).then(result => {
-        // if (result)
-        //     jwt.sign({email: user.email}, 'secretkey', (err, token) => {
-        //         res.json({token});
-        res.send(result).sendStatus(200);
+        if (result)
+            jwt.sign({email: user.email}, 'secretkey', (err, token) => {
+                res.json({token});
+        // res.send(result).sendStatus(200);
             }).catch(err => {
                 res.sendStatus(500);
-        // })
+        })
     })
 }
