@@ -16,21 +16,19 @@ app.use (bodyParser.json ({
 }));
 
 const card = require("./routes/card");
+const user = require("./routes/user");
+
 
 
 let port = process.env.PORT || 9000;
 
 
-// app.post('/test',(req,res) => {
-// 	console.log('work')
-// 	res.send({message: 'work pls'});
-// })
-// app.get("/",(req,res) => {
-// 	res.end("<h1>hello world</h1>")
-// })
+
 
 
 app.use("/api/card", card);
+app.use("/api/user", user);
+
 
 
 
