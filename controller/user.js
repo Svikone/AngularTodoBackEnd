@@ -26,6 +26,7 @@ exports.signinUsers = (req, res) => {
         // if (result)
         //     jwt.sign({email: user.email}, 'secretkey', (err, token) => {
         //         res.json({token});
+        res.send(result).sendStatus(200);
             }).catch(err => {
                 res.sendStatus(500);
         // })
