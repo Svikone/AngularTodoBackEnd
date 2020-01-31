@@ -19,7 +19,7 @@ exports.addUser = (req, res) => {
 
 exports.signinUsers = (req, res) => {
     const user = {
-        email: req.body.user.firstName,
+        email: req.body.user.email,
         password: req.body.user.password
     }
     Modules.findOne({email: user.email, password: user.password}).then(result => {
