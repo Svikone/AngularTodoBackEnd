@@ -1,6 +1,6 @@
 const Modules = require("../model/user")
 
-exports.addUsers = (req, res) => {
+exports.addUser = (req, res) => {
     const user = {
         name: req.body.user.name,
         email: req.body.user.email,
