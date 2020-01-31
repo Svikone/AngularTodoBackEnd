@@ -4,7 +4,7 @@ exports.addUser = (req, res) => {
     const user = {
         name: req.body.user.name,
         email: req.body.user.email,
-        password: req.body.nauser.password,
+        password: req.body.user.password,
     }
     Modules.findOne({name: user.name}).then(result => {
         if (result)
