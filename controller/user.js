@@ -23,11 +23,11 @@ exports.signinUsers = (req, res) => {
         password: req.body.user.password
     }
     Modules.findOne({email: user.email, password: user.password}).then(result => {
-        if (result)
-            jwt.sign({email: user.email}, 'secretkey', (err, token) => {
-                res.json({token});
+        // if (result)
+        //     jwt.sign({email: user.email}, 'secretkey', (err, token) => {
+        //         res.json({token});
             }).catch(err => {
                 res.sendStatus(500);
-        })
+        // })
     })
 }
