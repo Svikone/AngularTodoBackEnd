@@ -4,7 +4,7 @@ exports.addCard = (req, res) => {
     const card = {
         note: req.body.note,
         title: req.body.title,
-        name: req.body.name,
+        name: req.user.email,
         date: req.body.date
     }
     Modules(card).save().then(result => {
@@ -15,7 +15,7 @@ exports.addCard = (req, res) => {
 }
 
 exports.allCards = (req, res) => {
-    Modules.find({email: req.user.email}).then(result => {
+    Modules.find({name: req.user.email}).then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
         res.sendStatus(500)
