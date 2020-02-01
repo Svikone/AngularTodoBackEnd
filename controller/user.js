@@ -23,6 +23,7 @@ exports.signinUsers = (req, res) => {
         email: req.body.user.email,
         password: req.body.user.password
     }
+    console.log(user: req.user.email)
     Modules.findOne({email: user.email, password: user.password}).then(result => {
         if (result)
             jwt.sign({email: user.email}, 'secretkey', (err, token) => {
