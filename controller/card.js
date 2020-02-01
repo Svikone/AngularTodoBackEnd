@@ -1,4 +1,6 @@
 const Modules = require("../model/card")
+const jwt = require('jsonwebtoken');
+
 
 exports.addCard = (req, res) => {
     const card = {
