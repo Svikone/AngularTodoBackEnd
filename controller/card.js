@@ -15,7 +15,7 @@ exports.addCard = (req, res) => {
 }
 
 exports.allCards = (req, res) => {
-    Modules.find().then(result => {
+    Modules.find({email: req.user.email}).then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
         res.sendStatus(500)
