@@ -4,6 +4,7 @@ const cardSchema = mongoose.Schema({
     date: String,
     title: String,
     note: String,
+    user_id: String,
 });
 
 module.exports = mongoose.model("cards",cardSchema);
