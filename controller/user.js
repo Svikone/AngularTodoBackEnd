@@ -33,3 +33,12 @@ exports.signinUsers = (req, res) => {
         })
     })
 }
+
+exports.getUser = (req, res) => {
+    Modules.findOne({email: req.user.user_id}).then(result => {
+        res.send(result).sendStatus(200);
+    }).catch(err => {
+        res.sendStatus(500)
+    })
+    
+}
