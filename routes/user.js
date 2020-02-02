@@ -4,6 +4,6 @@ const Router = express.Router()
 
 Router.post("/add",  Controller.addUser);
 Router.post("/signin",  Controller.signinUsers);
-// Router.delete("/remove/:id",  Controller.removeCards);
+Router.post("/get",  Controller.getUser);
 
 module.exports = Router;
