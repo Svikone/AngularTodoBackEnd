@@ -34,6 +34,7 @@ exports.removeCards = (req, res) => {
 }
 
 exports.getCardId = (req, res) => {
+    console.log(req.params.id)
     Modules.find({_id: req.params.id}).then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
