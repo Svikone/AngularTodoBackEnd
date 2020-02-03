@@ -7,8 +7,8 @@ const Router = express.Router()
 Router.post("/add", mw,  Controller.addCard);
 Router.post("/all", mw, Controller.allCards);
 Router.delete("/remove/:id", mw,  Controller.removeCards);
-Router.delete("/:id", mw,  Controller.getCardId);
-Router.delete("/edit", mw,  Controller.editCards);
+Router.post("/:id", mw,  Controller.getCardId);
+Router.post("/edit", mw,  Controller.editCards);
 
 
 module.exports = Router;
