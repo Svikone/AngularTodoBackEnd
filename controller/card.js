@@ -50,7 +50,7 @@ exports.editCards = (req, res) => {
         date: req.body.date,
         user_id: req.user.user_id,
     }
-    Modules.find({_id: req.params.id}).update(card).then(result => {
+    Modules.findOne({_id: req.params.id}).updateOne(card).then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
         res.sendStatus(500)
