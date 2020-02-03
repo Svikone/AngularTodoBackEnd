@@ -32,3 +32,26 @@ exports.removeCards = (req, res) => {
         res.sendStatus(500)
     })
 }
+
+exports.getCardId = (req, res) => {
+    Modules.find({_id: req.params.id}).then(result => {
+        res.send(result).sendStatus(200);
+    }).catch(err => {
+        res.sendStatus(500)
+    })
+}
+
+exports.editCards = (req, res) => {
+    const card = {
+        note: req.body.note,
+        title: req.body.title,
+        name: req.body.name,
+        date: req.body.date,
+        user_id: req.user.user_id,
+    }
+    Modules.find({_id: req.params.id}).update({body: req.card}).then(result => {
+        res.send(result).sendStatus(200);
+    }).catch(err => {
+        res.sendStatus(500)
+    })
+}
