@@ -1,7 +1,6 @@
 const Modules = require("../model/card")
 const jwt = require('jsonwebtoken');
 
-
 exports.addCard = (req, res) => {
     const card = {
         note: req.body.note,
@@ -34,8 +33,7 @@ exports.removeCards = (req, res) => {
 }
 
 exports.getCardId = (req, res) => {
-    console.log(req.params.id)
-    Modules.find({_id: req.params.id}).then(result => {
+    Modules.findOne({_id: req.params.id}).then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
         res.sendStatus(500)
