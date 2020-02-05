@@ -5,9 +5,9 @@ const Router = express.Router()
 
 
 Router.post("/add", mw,  Controller.addCard);
-Router.post("/all", mw, Controller.allCards);
+Router.get("/all", mw, Controller.allCards);
 Router.delete("/remove/:id", mw,  Controller.removeCards);
-Router.post("/:id", mw,  Controller.getCardId);
+Router.get("/:id", mw,  Controller.getCardId);
 Router.post("/edit/:id", mw,  Controller.editCards);
 
 
