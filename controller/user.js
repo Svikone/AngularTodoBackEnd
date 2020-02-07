@@ -34,8 +34,16 @@ exports.signinUsers = (req, res) => {
     })
 }
 
-exports.getUser = (req, res) => {
+exports.getUserId = (req, res) => {
     Modules.findOne({email: req.user.user_id}).then(result => {
+        res.send(result).Status(200);
+    }).catch(err => {
+        res.sendStatus(500)
+    })
+}
+
+exports.getUser = (req, res) => {
+    Modules.find({}).then(result => {
         res.send(result).Status(200);
     }).catch(err => {
         res.sendStatus(500)
