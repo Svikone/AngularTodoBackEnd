@@ -57,7 +57,9 @@ exports.editCards = (req, res) => {
 
 exports.addCardShared = (req, res) => {
     Modules.find({_id: req.body._id}).then(result => {
-        console.log(result._idShared)
+        console.log(result[0])
+        console.log(result[0]._idShared)
+
         result._idShared.push(req.body._idShared)
         Modules.updateOne(result).then(result => {
             res.send(result).sendStatus(200);
