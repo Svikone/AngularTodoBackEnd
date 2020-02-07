@@ -5,6 +5,7 @@ const cardSchema = mongoose.Schema({
     title: String,
     note: String,
     user_id: String,
+    _idShared: []
 });
 
 module.exports = mongoose.model("cards",cardSchema);

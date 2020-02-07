@@ -54,3 +54,16 @@ exports.editCards = (req, res) => {
         res.sendStatus(500)
     })
 }
+
+exports.addCardShared = (req, res) => {
+    Modules.find({_id: req.body._id}).then(result => {
+
+        result._idShared.push(req.body._idShared)
+        Modules.updateOne(result).then(result => {
+            res.send(result).sendStatus(200);
+
+        }).catch(err => {
+            res.sendStatus(500)
+        })
+    })
+}
