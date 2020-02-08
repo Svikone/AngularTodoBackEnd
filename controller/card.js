@@ -56,15 +56,21 @@ exports.editCards = (req, res) => {
 }
 
 exports.addCardShared = (req, res) => {
-    Modules.find({_id: req.body._id}).then(result => {
+    const user = req.body._idShared
+    Modules.findOne({_id: req.body._id}).then(first => {
 
-        result[0]._idShared.push(req.body._idShared)
-        console.log(result[0])
-        Modules.find({_id: req.body._id}).updateOne(result[0]).then(result => {
-            res.send(result).sendStatus(200);
-        }).catch(err => {
-            res.sendStatus(500)
-        })
+        const find =  first._idShared.find(v => v == user);
+        if(find) {
+            first._idShared.push(user)
+            Modules.find({_id: req.body._id}).updateOne(first).then(result => {
+                res.send(result).sendStatus(200);
+            }).catch(err => {
+                res.sendStatus(500)
+            })
+        }
+        else {
+            res.send('card user exist').status(200)
+        }
     })
 }
 
