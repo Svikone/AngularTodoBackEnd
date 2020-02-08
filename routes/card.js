@@ -10,6 +10,8 @@ Router.delete("/remove/:id", mw,  Controller.removeCards);
 Router.get("/:id", mw,  Controller.getCardId);
 Router.post("/edit/:id", mw,  Controller.editCards);
 Router.post("/add/shared", mw,  Controller.addCardShared);
+Router.post("/all/shared", mw,  Controller.allCardShared);
+
 
 
 

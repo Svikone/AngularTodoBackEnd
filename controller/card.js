@@ -57,7 +57,6 @@ exports.editCards = (req, res) => {
 
 exports.addCardShared = (req, res) => {
     Modules.find({_id: req.body._id}).then(result => {
-        
 
         result[0]._idShared.push(req.body._idShared)
         console.log(result[0])
@@ -66,5 +65,13 @@ exports.addCardShared = (req, res) => {
         }).catch(err => {
             res.sendStatus(500)
         })
+    })
+}
+
+exports.allCardShared = (req, res) => {
+    Modules.find({_idShared: req.user.user_id}).then(result => {
+        res.send(result).sendStatus(200);
+    }).catch(err => {
+        res.sendStatus(500)
     })
 }
