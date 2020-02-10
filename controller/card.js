@@ -60,16 +60,16 @@ exports.addCardShared = (req, res) => {
     Modules.findOne({_id: req.body._id}).then(first => {
 
         const find =  first._idShared.find(v => v == user);
-        if(!find) {
+        if(find) {
+            res.send('card user exist').status(200)
+        }
+        else {
             first._idShared.push(user)
             Modules.find({_id: req.body._id}).updateOne(first).then(result => {
                 res.send(result).sendStatus(200);
             }).catch(err => {
                 res.sendStatus(500)
             })
-        }
-        else {
-            res.send('card user exist').status(200)
         }
     })
 }
