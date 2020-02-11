@@ -75,7 +75,7 @@ exports.addCardShared = (req, res) => {
 }
 
 exports.allCardShared = (req, res) => {
-    Modules.find({_idShared: req.user.user_id}).then(result => {
+    Modules.find({ _idShared: req.user.user_id}).then(result => {
         res.send(result).sendStatus(200);
     }).catch(err => {
         res.sendStatus(500)
