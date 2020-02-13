@@ -18,6 +18,7 @@ exports.addCard = (req, res) => {
 
 exports.allCards = (req, res) => {
     Modules.find({ user_id: req.user.user_id}).then(result => {
+        
         res.send(result).sendStatus(200);
     }).catch(err => {
         res.sendStatus(500)
@@ -79,5 +80,18 @@ exports.allCardShared = (req, res) => {
         res.send(result).sendStatus(200);
     }).catch(err => {
         res.sendStatus(500)
+    })
+}
+
+exports.removeCardShared = (req, res) => {
+    Modules.findOne({ _id: req.body._idCard}).then(first => {
+        let arr = first._idShared
+        let elem = arr.indexOf(req.body.shared)
+        arr.splice(elem,1)
+        Modules.find({_id: req.body._idCard}).updateOne(first).then(second => {
+            res.sendStatus(200);
+        }).catch(err => {
+            res.sendStatus(500)
+        })
     })
 }

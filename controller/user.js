@@ -42,8 +42,18 @@ exports.getUserId = (req, res) => {
     })
 }
 
-exports.getUser = (req, res) => {
-    Modules.find({}).then(result => {
+// exports.getUser = (req, res) => {
+//     Modules.find({}).then(result => {
+//         console.log(result)
+//         res.send(result).Status(200);
+//     }).catch(err => {
+//         res.sendStatus(500)
+//     })
+// }
+
+exports.getUserSearch = (req, res) => {
+    Modules.find({ $text: {$search: req.body._searchValue}}).then(result => {
+        console.log(result)
         res.send(result).Status(200);
     }).catch(err => {
         res.sendStatus(500)

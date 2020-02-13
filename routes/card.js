@@ -11,6 +11,8 @@ Router.get("/:id", mw,  Controller.getCardId);
 Router.post("/edit/:id", mw,  Controller.editCards);
 Router.post("/add/shared", mw,  Controller.addCardShared);
 Router.get("/all/shared", mw,  Controller.allCardShared);
+Router.post("/remove/shared", mw,  Controller.removeCardShared);
+
 
 
 
